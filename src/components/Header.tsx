@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowRight } from 'lucide-react';
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
+ const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navigation = [
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+
+  const navItems = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
@@ -20,83 +30,79 @@ const Header = () => {
 
 
   return (
-    <header className="bg-transparent backdrop-blur-sm shadow-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">F</span>
-            </div>
-            <span className="text-xl font-bold text-gray-200">Fyodor Solutions</span>
-          </Link>
+   <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-black/90 backdrop-blur-lg border-b border-gray-800'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between py-4">
+          {/* Logo */}
+          <div className="text-2xl font-bold text-white">
+            Fyodor<span className="text-blue-400">.</span>
+          </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            {navigation.map((item) => (
-              <Link
+          <nav className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <a
                 key={item.name}
-                to={item.href}
-                className={`px-3 py-2 text-sm font-medium transition-colors duration-200 relative group ${
-                  isActive(item.href)
-                    ? 'text-white'
-                    : 'text-white hover:text-blue-600'
-                }`}
+                href={item.href}
+                className="text-gray-300 hover:text-white transition-colors duration-200 relative group"
               >
                 {item.name}
-                <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 transform transition-transform duration-200 ${
-                  isActive(item.href) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-                }`} />
-              </Link>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-200 group-hover:w-full" />
+              </a>
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center space-x-4">
-            <Link
-              to="/contact"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 flex items-center space-x-2 group"
+          {/* CTA Button */}
+          <div className="hidden md:block">
+            <a
+              href="#contact"
+              className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full transition-all duration-200 hover:scale-105"
             >
-              <span>Get Started</span>
-              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-            </Link>
+              Get Started
+            </a>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Toggle */}
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+            className="md:hidden text-white p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        <div className={`md:hidden transition-all duration-300 overflow-hidden ${
-          isMenuOpen ? 'max-h-96 pb-4' : 'max-h-0'
-        }`}>
-          <nav className="flex flex-col space-y-2 pt-4">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                onClick={() => setIsMenuOpen(false)}
-                className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
-                  isActive(item.href)
-                    ? 'text-blue-600 bg-blue-50'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <Link
-              to="/contact"
-              onClick={() => setIsMenuOpen(false)}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 text-center mt-4"
-            >
-              Get Started
-            </Link>
-          </nav>
-        </div>
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-black/95 backdrop-blur-lg border-t border-gray-800">
+            <nav className="py-4 space-y-2">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800/50 rounded transition-all duration-200"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ))}
+              <div className="px-4 pt-2">
+                <a
+                  href="#contact"
+                  className="block text-center bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full transition-all duration-200"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Get Started
+                </a>
+              </div>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );
