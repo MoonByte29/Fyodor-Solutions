@@ -5,7 +5,9 @@ import Particles from "../components/Particles";
 import ServicesSection from "../sections/ServicesSection";
 import WhyUs from "../sections/WhyUs";
 import PartnerSection from './../sections/PartnerSection';
-import BlogSection from './../sections/BLogSection'
+import BlogSection from './../sections/BlogSection'
+// import FeatureSection from './../sections/FeatureSection';
+import ChromaBackground from "./../components/ChromaBackground";
 
 const Home = () => {
   return (
@@ -54,6 +56,8 @@ const Home = () => {
       </div>
       <WhyUs />
       <PartnerSection/>
+      {/* <FeatureSection/> */}
+      <ChromaBackground />
       <BlogSection/>
     </>
   );
