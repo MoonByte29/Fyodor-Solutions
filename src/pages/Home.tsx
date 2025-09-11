@@ -3,7 +3,7 @@ import BlurText from "../components/BlurText";
 import ShinyText from "../components/ShinyButton";
 import Particles from "../components/Particles";
 import ServicesSection from "../sections/home/ServicesSection";
-import WhyUs from "../sections/home/Benefits";
+import Benefits from "../sections/home/Benefits";
 import PartnerSection from "../sections/home/PartnerSection";
 import BlogSection from "../sections/home/BlogSection";
 // import FeatureSection from './../sections/FeatureSection';
@@ -56,7 +56,7 @@ const Home = () => {
 
         {/* <ServicesSection /> */}
       </div>
-      <WhyUs />
+      <Benefits />
       <PartnerSection />
       {/* <FeatureSection/> */}
       <ChromaBackground />
