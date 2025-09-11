@@ -2,12 +2,14 @@ import React from "react";
 import BlurText from "../components/BlurText";
 import ShinyText from "../components/ShinyButton";
 import Particles from "../components/Particles";
-import ServicesSection from "../sections/ServicesSection";
-import WhyUs from "../sections/WhyUs";
-import PartnerSection from './../sections/PartnerSection';
-import BlogSection from './../sections/BlogSection'
+import ServicesSection from "../sections/home/ServicesSection";
+import WhyUs from "../sections/home/Benefits";
+import PartnerSection from "../sections/home/PartnerSection";
+import BlogSection from "../sections/home/BlogSection";
 // import FeatureSection from './../sections/FeatureSection';
 import ChromaBackground from "./../components/ChromaBackground";
+import Specialities from "../sections/home/Specialities";
+import ContactForm from "../sections/contact/ContactForm";
 
 const Home = () => {
   return (
@@ -55,10 +57,12 @@ const Home = () => {
         {/* <ServicesSection /> */}
       </div>
       <WhyUs />
-      <PartnerSection/>
+      <PartnerSection />
       {/* <FeatureSection/> */}
       <ChromaBackground />
-      <BlogSection/>
+      <Specialities />
+      <BlogSection />
+      <ContactForm />
     </>
   );
 };
