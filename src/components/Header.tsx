@@ -23,7 +23,7 @@ const Header = () => {
     {
       name: 'Service',
       dropdown: [
-        { name: 'AI & Automation Consulting', href: '/ai&automation' },
+        { name: 'AI & Automation Consulting', href: '/ai-automation' },
         { name: 'Opportunity Discovery', href: '/opportunity-discovery' },
         { name: 'Cybersecurity & Compliance', href: '/cybersecurity&compilance' },
         { name: 'Managed Delivery', href: '/managed-delivery' },

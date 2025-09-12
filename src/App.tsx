@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
+import AIAutomation from "./pages/services/AIAutomation";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/blog" element={<Blog />} />
+              <Route path="/ai-automation" element={<AIAutomation />} />
               <Route path="/contact" element={<Contact />} />
               {/* Fallback 404 */}
               <Route
