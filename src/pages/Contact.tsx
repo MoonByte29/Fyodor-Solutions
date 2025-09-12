@@ -1,6 +1,7 @@
 import React from 'react'
 import ContactForm from '../sections/contact/ContactForm'
-import { Details } from '@mui/icons-material'
+import Details from '../sections/contact/Details'
+
 
 const Contact = () => {
   return (
