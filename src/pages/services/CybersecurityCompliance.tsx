@@ -1,95 +1,88 @@
 import React from "react";
 import ShinyButton from "../../components/ShinyButton";
-import { Brain, Cpu, Zap, BarChart3, Workflow, Bot } from "lucide-react";
+import GlassIcons from "../../components/GlassIcons";
+import { Laptop, Palette, Zap, Cloud, Headphones } from "lucide-react";
 
-const AIAutomation = () => {
+const CybersecurityCompliance = () => {
   const services = [
     {
-      title: "AI Strategy & Consulting",
+      title: "Product Development & Engineering",
       description:
-        "Comprehensive AI roadmap development and implementation planning. We help you identify opportunities and build a tailored AI strategy aligned with your business goals.",
-      icon: Brain,
+        "End-to-end design and development of scalable web, mobile, and cloud solutions. Agile, modern architectures tailored to your business.",
+      icon: Laptop,
       color: "#3b82f6",
       gradient: "from-blue-500 to-cyan-500",
     },
     {
-      title: "Machine Learning Solutions",
+      title: "UI/UX & Frontend Excellence",
       description:
-        "Custom ML models and algorithms designed to solve your specific business challenges. From predictive analytics to pattern recognition and beyond.",
-      icon: Cpu,
+        "Intuitive, responsive, and engaging digital interfaces. Focus on user-centered design and seamless experiences.",
+      icon: Palette,
       color: "#8b5cf6",
       gradient: "from-violet-500 to-purple-500",
     },
     {
-      title: "Intelligent Process Automation",
+      title: "Enterprise Integration & Automation",
       description:
-        "End-to-end automation of complex business processes using AI and RPA. Streamline operations, reduce errors, and increase efficiency across your organization.",
+        "API-driven connectivity for cross-platform systems. Smart automation to reduce complexity and increase efficiency.",
       icon: Zap,
       color: "#06b6d4",
       gradient: "from-cyan-500 to-blue-500",
     },
     {
-      title: "Data Analytics & Insights",
+      title: "Data & Cloud Solutions",
       description:
-        "Transform raw data into actionable intelligence. Advanced analytics platforms that help you make data-driven decisions and uncover hidden opportunities.",
-      icon: BarChart3,
+        "Secure cloud migration, storage, and management. Data-driven insights and AI alignment.",
+      icon: Cloud,
       color: "#3b82f6",
       gradient: "from-blue-500 to-indigo-500",
     },
     {
-      title: "AI-Powered Workflow Optimization",
+      title: "Support & Managed Services",
       description:
-        "Intelligent workflow systems that learn and adapt to your business needs. Automate repetitive tasks and optimize complex decision-making processes.",
-      icon: Workflow,
+        "Continuous monitoring, maintenance, and scaling. Reliable support for ongoing business growth.",
+      icon: Headphones,
       color: "#8b5cf6",
       gradient: "from-purple-500 to-violet-500",
-    },
-    {
-      title: "Conversational AI & Chatbots",
-      description:
-        "Advanced chatbot solutions and virtual assistants that provide seamless customer experiences and automate customer support operations.",
-      icon: Bot,
-      color: "#ec4899",
-      gradient: "from-pink-500 to-rose-500",
     },
   ];
 
   const advantages = [
     {
-      title: "AI Expertise",
+      title: "Proven Expertise",
       description:
-        "Deep technical knowledge in machine learning, NLP, and computer vision.",
-      icon: "🧠",
-      gradient: "from-blue-400 to-cyan-500",
-    },
-    {
-      title: "Custom Solutions",
-      description: "Tailored AI implementations for your specific industry needs.",
-      icon: "⚙️",
-      gradient: "from-violet-400 to-purple-500",
-    },
-    {
-      title: "Scalable Architecture",
-      description: "AI systems designed to grow with your business needs.",
-      icon: "📈",
-      gradient: "from-green-400 to-emerald-500",
-    },
-    {
-      title: "Ethical AI Practices",
-      description: "Responsible AI development with transparency and fairness.",
-      icon: "⚖️",
+        "Years of experience in delivering impactful digital products.",
+      icon: "🏆",
       gradient: "from-yellow-400 to-orange-500",
     },
     {
-      title: "Continuous Learning",
-      description: "AI systems that improve and adapt over time.",
-      icon: "🔄",
+      title: "Tailored Solutions",
+      description: "Every solution is designed around your specific goals.",
+      icon: "🎯",
       gradient: "from-red-400 to-pink-500",
     },
     {
-      title: "Seamless Integration",
-      description: "Easy integration with your existing systems and workflows.",
-      icon: "🔗",
+      title: "Client-First Approach",
+      description: "We prioritize your needs and long-term success.",
+      icon: "👥",
+      gradient: "from-blue-400 to-cyan-500",
+    },
+    {
+      title: "Transparent Process",
+      description: "Clear communication at every step.",
+      icon: "💬",
+      gradient: "from-green-400 to-emerald-500",
+    },
+    {
+      title: "Dedicated Support",
+      description: "A team that stays with you beyond delivery.",
+      icon: "✅",
+      gradient: "from-emerald-400 to-teal-500",
+    },
+    {
+      title: "Cross-Industry Knowledge",
+      description: "Experience across tech, education, finance, and more.",
+      icon: "🌍",
       gradient: "from-indigo-400 to-purple-500",
     },
   ];
@@ -119,40 +112,46 @@ const AIAutomation = () => {
                   ></div>
                 </div>
                 <span className="text-white text-sm font-medium tracking-wider">
-                  AI & AUTOMATION EXPERTS
+                  DIGITAL TRANSFORMATION EXPERTS
                 </span>
               </div>
             </div>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">
               <span className="inline-block hover:scale-105 transition-transform duration-300">
-                AI & Intelligent
+                Digital
               </span>{" "}
+              <span className="inline-block hover:scale-105 transition-transform duration-300">
+                Solutions
+              </span>{" "}
+              <span className="inline-block hover:scale-105 transition-transform duration-300">
+                &
+              </span>
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400 animate-pulse inline-block hover:scale-105 transition-transform duration-300">
-                Automation
+                Innovation
               </span>{" "}
               <br />
               <span className="inline-block hover:scale-105 transition-transform duration-300 text-4xl md:text-5xl lg:text-6xl text-slate-300">
-                for the Modern Enterprise
+                for Modern Enterprises
               </span>
             </h1>
 
             <p className="text-slate-300 max-w-4xl mx-auto text-xl leading-relaxed">
-              Artificial intelligence and automation are transforming businesses —
-              but implementation requires expertise and precision.
+              AI, automation, and digital experiences bring new opportunities —
+              but also demand reliability and scale.
               <span className="text-blue-400 font-semibold">
                 {" "}
-                Fyodor delivers cutting-edge AI solutions
+                Fyodor delivers next-generation solutions
               </span>{" "}
-              that drive efficiency, innovation, and competitive advantage. From
-              intelligent process automation to machine learning systems, we build
-              AI that works for your business.
+              with innovation and trust at the core of every deployment. Whether
+              you're launching a digital platform or scaling operations, we
+              ensure your systems are smart, seamless, and future-ready.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
               <ShinyButton
-                text="Explore AI Solutions"
+                text="Schedule a Consultation"
                 disabled={false}
                 speed={3}
               />
@@ -161,7 +160,7 @@ const AIAutomation = () => {
         </div>
       </div>
 
-      {/* Why Fyodor for AI Section */}
+      {/* Why Fyodor Section */}
       <div className="relative py-24 px-5">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-start mb-20">
@@ -170,15 +169,15 @@ const AIAutomation = () => {
                 <span className="h-2 w-2 animate-pulse bg-violet-500 rounded-full"></span>
               </div>
               <span className="text-white text-sm font-medium tracking-wider">
-                AI EXCELLENCE
+                WHY FYODOR
               </span>
             </div>
 
             <h2 className="font-bold text-white text-3xl md:text-5xl lg:text-6xl leading-tight mb-8 max-w-4xl">
-              Why Choose Fyodor for{" "}
+              Why Enterprises Choose{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400 relative">
                 <span className="hover:scale-105 inline-block transition-transform duration-300">
-                  AI & Automation
+                  Fyodor
                 </span>
                 <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
               </span>
@@ -186,13 +185,14 @@ const AIAutomation = () => {
 
             <div className="relative">
               <p className="text-slate-300 text-xl max-w-4xl leading-relaxed">
-                We don't just implement AI —{" "}
-                <strong className="text-blue-400">we build intelligent systems that learn and adapt.</strong>{" "}
-                At Fyodor, our AI experts combine deep technical knowledge with
-                business understanding to create solutions that deliver real value.
-                Unlike generic AI providers, our approach is{" "}
+                We don't just build solutions —{" "}
+                <strong className="text-blue-400">we craft experiences.</strong>{" "}
+                At Fyodor, our experts work alongside your teams to integrate
+                technology with strategy, ensuring everything we deliver is
+                scalable, user-friendly, and built to last. Unlike
+                one-size-fits-all firms, our approach is{" "}
                 <strong className="text-violet-400">
-                  tailored, ethical, and results-driven.
+                  customized, collaborative, and impact-driven.
                 </strong>
               </p>
 
@@ -203,7 +203,7 @@ const AIAutomation = () => {
         </div>
       </div>
 
-      {/* AI Services Section */}
+      {/* What We Deliver Section */}
       <div className="relative py-24 px-5" id="services">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-start mb-20">
@@ -216,26 +216,26 @@ const AIAutomation = () => {
                 ></span>
               </div>
               <span className="text-white text-sm font-medium tracking-wider">
-                AI SERVICES
+                OUR SERVICES
               </span>
             </div>
 
             <h2 className="font-bold text-white text-3xl md:text-5xl lg:text-6xl leading-tight mb-8">
-              Our AI & Automation{" "}
+              What We{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400 hover:scale-105 inline-block transition-transform duration-300">
-                Solutions
+                Deliver
               </span>
             </h2>
 
             <p className="text-slate-300 text-xl max-w-3xl leading-relaxed">
-              We help enterprises harness the power of AI with{" "}
+              We help enterprises accelerate their digital journey with{" "}
               <strong className="text-blue-400">
-                innovative, scalable, and ethical automation solutions.
+                powerful, adaptable, and innovative solutions.
               </strong>
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -275,7 +275,7 @@ const AIAutomation = () => {
         </div>
       </div>
 
-      {/* AI Advantages Section */}
+      {/* Why We Are Your Best Choice Section */}
       <div className="relative py-24 px-5">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-start mb-20">
@@ -288,21 +288,21 @@ const AIAutomation = () => {
                 ></span>
               </div>
               <span className="text-white text-sm font-medium tracking-wider">
-                AI ADVANTAGES
+                OUR ADVANTAGES
               </span>
             </div>
 
             <h2 className="font-bold text-white text-3xl md:text-5xl lg:text-6xl leading-tight mb-8">
-              The Fyodor AI{" "}
+              Why We Are Your{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-violet-400 to-cyan-400 hover:scale-105 inline-block transition-transform duration-300">
-                Advantage
+                Best Choice
               </span>
             </h2>
 
             <p className="text-slate-300 text-xl max-w-3xl leading-relaxed">
               Discover how our{" "}
-              <strong className="text-violet-400">cutting-edge AI approach</strong>{" "}
-              delivers transformative results for businesses across industries.
+              <strong className="text-violet-400">innovative approach</strong>{" "}
+              delivers measurable results for businesses worldwide.
             </p>
           </div>
 
@@ -351,20 +351,20 @@ const AIAutomation = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-violet-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
 
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 relative z-10">
-              Ready to Transform with{" "}
+              Ready to Transform Your{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-violet-400">
-                Artificial Intelligence?
+                Digital Future?
               </span>
             </h3>
             <p className="text-slate-300 text-lg mb-8 max-w-2xl mx-auto relative z-10">
-              Let's discuss how Fyodor can implement AI and automation solutions
-              that drive efficiency, innovation, and competitive advantage for your business.
+              Let's discuss how Fyodor can accelerate your digital
+              transformation with cutting-edge solutions tailored to your needs.
             </p>
             <a
               href="#contact"
               className="inline-block px-12 py-5 rounded-full bg-gradient-to-r from-blue-600 via-violet-600 to-cyan-600 hover:from-blue-700 hover:via-violet-700 hover:to-cyan-700 transition-all duration-300 font-semibold text-lg shadow-2xl hover:shadow-blue-500/40 hover:scale-105 transform relative z-10"
             >
-              Start Your AI Journey
+              Start Your Journey
             </a>
           </div>
         </div>
@@ -373,4 +373,4 @@ const AIAutomation = () => {
   );
 };
 
-export default AIAutomation;
+export default CybersecurityCompliance;

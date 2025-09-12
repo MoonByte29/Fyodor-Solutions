@@ -1,6 +1,5 @@
 import React from "react";
 import BlurText from "../components/BlurText";
-import ShinyText from "../components/ShinyButton";
 import Particles from "../components/Particles";
 import ServicesSection from "../sections/home/ServicesSection";
 import Benefits from "../sections/home/Benefits";
@@ -12,6 +11,7 @@ import Specialities from "../sections/home/Specialities";
 import ContactForm from "../sections/contact/ContactForm";
 import Testimonial from "../sections/home/Testimonial";
 import FaqSection from "../sections/contact/FaqSection";
+import ShinyButton from "../components/ShinyButton";
 
 const Home = () => {
   return (
@@ -48,7 +48,7 @@ const Home = () => {
               Our innovation-driven services empower businesses and
               professionals alike.
             </p>
-            <ShinyText
+            <ShinyButton
               text="Schedule a Consultation"
               disabled={false}
               speed={3}

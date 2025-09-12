@@ -7,6 +7,9 @@ import About from "./pages/About";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import AIAutomation from "./pages/services/AIAutomation";
+import OpportunityDiscovery from "./pages/services/OpportunityDiscovery";
+import CybersecurityCompliance from "./pages/services/CybersecurityCompliance";
+import ManagedDelivery from "./pages/services/ManagedDelivery";
 
 function App() {
   return (
@@ -27,6 +30,16 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/ai-automation" element={<AIAutomation />} />
+              <Route
+                path="/opportunity-discovery"
+                element={<OpportunityDiscovery />}
+              />
+              <Route
+                path="/cybersecurity-compilance"
+                element={<CybersecurityCompliance />}
+              />
+              <Route path="/managed-delivery" element={<ManagedDelivery />} />
+
               <Route path="/contact" element={<Contact />} />
               {/* Fallback 404 */}
               <Route
