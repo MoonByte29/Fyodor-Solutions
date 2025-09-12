@@ -10,7 +10,7 @@ const Stages = () => {
             <div className="min-w-fit border border-white/30 rounded-full px-6 py-2 backdrop-blur-sm bg-white/10 flex items-center gap-2 mb-8">
               <span className="h-2 w-2 animate-pulse bg-violet-500 rounded-full"></span>
               <span className="text-white text-sm font-medium tracking-wider">
-                ABOUT
+                STAGES
               </span>
             </div>
 

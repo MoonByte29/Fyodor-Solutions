@@ -193,7 +193,7 @@ export default function Testimonial() {
         {/* Section Header */}
         <div className="flex flex-col items-start mb-10">
           <div className="min-w-fit border border-blue-400/40 rounded-full px-6 py-2 backdrop-blur-sm bg-blue-900/40 flex items-center gap-2 mb-8">
-            <span className="h-2 w-2 animate-pulse bg-blue-400 rounded-full"></span>
+            <span className="h-2 w-2 animate-pulse bg-violet-500 rounded-full"></span>
             <span className="text-blue-200 text-sm font-medium tracking-wider">
               TESTIMONIALS
             </span>
