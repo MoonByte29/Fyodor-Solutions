@@ -17,7 +17,6 @@ const Header = () => {
 
 
   const navItems = [
-    { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
     { name: 'Portfolio', href: '/portfolio' },
@@ -40,9 +39,9 @@ const Header = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <div className="text-2xl font-bold text-white">
+          <Link to="/" className="text-2xl font-bold text-white">
             Fyodor<span className="text-blue-400">.</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">

@@ -10,6 +10,7 @@ import BlogSection from "../sections/home/BlogSection";
 import ChromaBackground from "./../components/ChromaBackground";
 import Specialities from "../sections/home/Specialities";
 import ContactForm from "../sections/contact/ContactForm";
+import Testimonial from "../sections/home/Testimonial";
 
 const Home = () => {
   return (
@@ -62,6 +63,7 @@ const Home = () => {
       <ChromaBackground />
       <Specialities />
       <BlogSection />
+      <Testimonial />
       <ContactForm />
     </>
   );
