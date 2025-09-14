@@ -1,7 +1,6 @@
 import React from "react";
 import { Target, Brain, Users, Globe } from "lucide-react";
 import GlassIcons from "../../components/GlassIcons";
-import { motion } from "framer-motion";
 
 interface Feature {
   title: string;
@@ -49,132 +48,68 @@ const Benefits = () => {
     { icon: <Globe className="w-8 h-8" />, color: "#3b82f6"},
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 50,
-      scale: 0.9
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
-
   return (
-    <section className="section-padding min-h-screen">
-      <div className="container-custom">
+    <div className="py-20 px-5 min-h-screen">
+      <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <motion.div 
-          className="flex flex-col items-start mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <motion.div 
-            className="glass-effect rounded-full px-8 py-3 flex items-center gap-3 mb-10"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
-          >
-            <span className="h-2 w-2 animate-pulse-slow bg-violet-500 rounded-full"></span>
-            <span className="text-white text-sm font-semibold tracking-wider">
-              WHY CHOOSE US
+        <div className="flex flex-col items-start mb-16">
+          <div className="min-w-fit border border-white/30 rounded-full px-6 py-2 backdrop-blur-sm bg-white/10 flex items-center gap-2 mb-8">
+            <span className="h-2 w-2 animate-pulse bg-violet-500 rounded-full"></span>
+            <span className="text-white text-sm font-medium tracking-wider">
+              BENEFITS
             </span>
-          </motion.div>
+          </div>
 
-          <motion.h2 
-            className="font-bold text-white text-3xl md:text-5xl lg:text-6xl leading-tight mb-8 text-balance"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
+          <h2 className="text-center font-bold text-white text-2xl md:text-4xl lg:text-5xl leading-tight mb-6">
             Why Enterprises Choose{" "}
-            <span className="gradient-text">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-violet-400">
               Fyodor
             </span>
-          </motion.h2>
+          </h2>
 
-          <motion.p 
-            className="text-slate-300 text-xl max-w-3xl leading-relaxed font-light"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
+          <p className="text-left text-slate-300 text-lg max-w-2xl">
             Discover how our innovative approach delivers measurable results for
             businesses worldwide
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Features Grid */}
-        <motion.div 
-          className="grid grid-cols-1 lg:grid-cols-2 gap-10"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 min-w-full">
           {features.map((feature, index) => (
-            <motion.div
+            <div
               key={index}
-              className="group relative glass-effect rounded-3xl p-10 card-hover border border-slate-700/50 hover:border-blue-500/40 shadow-xl hover:shadow-2xl hover:shadow-blue-500/20"
-              variants={itemVariants}
-              whileHover={{ 
-                y: -8,
-                transition: { duration: 0.3, ease: "easeOut" }
-              }}
+              className="group relative bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 border border-slate-700/50 hover:border-blue-500/30 shadow-lg hover:shadow-xl hover:shadow-blue-500/10"
             >
               {/* Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-violet-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-violet-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
               {/* Glass Icon (1 per feature) */}
-              <div className="relative z-10 mb-8">
+              <div className="relative z-10 mb-6">
                 <GlassIcons items={[items[index]]} />
               </div>
 
               {/* Title */}
-              <h3 className="relative z-10 text-2xl font-bold text-white mb-6 leading-tight group-hover:text-blue-200 transition-colors duration-300">
+              <h3 className="relative z-10 text-xl font-bold text-white mb-4 leading-snug group-hover:text-blue-200 transition-colors duration-300">
                 {feature.title}
               </h3>
 
               {/* Description */}
-              <p className="relative z-10 text-slate-300 leading-relaxed mb-6 text-lg font-light">
+              <p className="relative z-10 text-slate-300 leading-relaxed mb-5 text-base">
                 {feature.description}
               </p>
 
               {/* Subtitle */}
-              <div className="relative z-10 pt-6 border-t border-slate-700/50 group-hover:border-blue-500/40 transition-colors duration-300">
-                <p className="text-slate-400 leading-relaxed text-base italic font-light">
+              <div className="relative z-10 pt-4 border-t border-slate-700/50 group-hover:border-blue-500/30 transition-colors duration-300">
+                <p className="text-slate-400 leading-relaxed text-sm italic">
                   {feature.subtitle}
                 </p>
               </div>
-
-              {/* Decorative corner */}
-              <div className="absolute top-6 right-6 w-3 h-3 bg-gradient-to-br from-blue-400 to-violet-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
       </div>
-    </section>
+    </div>
   );
 };
 
