@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ShinyButton from "../../components/ShinyButton";
+import { motion, AnimatePresence } from "framer-motion";
 
 const BlogSection = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
@@ -45,102 +46,218 @@ const BlogSection = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 px-4 overflow-hidden  relative">
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div className="flex flex-col items-center mb-16">
-          <div className="min-w-fit border border-white/30 rounded-full px-6 py-2 backdrop-blur-sm bg-white/10 flex items-center gap-2 mb-8">
-            <span className="h-2 w-2 animate-pulse bg-violet-500 rounded-full"></span>
-            <span className="text-white text-sm font-medium tracking-wider">
+    <section className="section-padding min-h-screen overflow-hidden relative">
+      <div className="container-custom relative z-10">
+        <motion.div 
+          className="flex flex-col items-center mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <motion.div 
+            className="glass-effect rounded-full px-8 py-3 flex items-center gap-3 mb-10"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
+          >
+            <span className="h-2 w-2 animate-pulse-slow bg-violet-500 rounded-full"></span>
+            <span className="text-white text-sm font-semibold tracking-wider">
               BLOGS
             </span>
-          </div>
+          </motion.div>
 
-          <h2 className="text-center font-bold text-white text-2xl md:text-4xl lg:text-5xl leading-tight mb-6">
+          <motion.h2 
+            className="text-center font-bold text-white text-3xl md:text-5xl lg:text-6xl leading-tight mb-8 text-balance"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
             What's New at{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-violet-400">
+            <span className="gradient-text">
               Fyodor
             </span>
-          </h2>
+          </motion.h2>
 
-          <p className="text-left text-slate-300 text-lg max-w-2xl">
+          <motion.p 
+            className="text-center text-slate-300 text-xl max-w-3xl leading-relaxed font-light"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
             Stay informed with the latest trends, ideas, and expert guidance
             from our team.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
+
         {/* Cards */}
-        <div className="flex flex-col md:flex-row gap-6 justify-center items-stretch">
+        <motion.div 
+          className="flex flex-col lg:flex-row gap-8 justify-center items-stretch mb-12"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {cards.map((card) => {
             const isActive = activeCard === card.id;
             return (
-              <div
+              <motion.div
                 key={card.id}
                 onMouseEnter={() => setActiveCard(card.id)}
                 onMouseLeave={() => setActiveCard(null)}
-                className={`bg-gradient-to-b from-slate-900/70 to-blue-950/90 backdrop-blur shadow-xl rounded-lg cursor-pointer transition-all duration-500 ease-in-out overflow-hidden border border-blue-700/30 flex flex-col ${
+                className={`glass-effect shadow-2xl rounded-2xl cursor-pointer transition-all duration-500 ease-in-out overflow-hidden border border-blue-700/40 flex flex-col ${
                   isActive
-                    ? "md:flex-[2] shadow-sm shadow-blue-500/30 border-blue-500/50"
-                    : "md:flex-[1] "
+                    ? 'lg:flex-[2] shadow-blue-500/40 border-blue-500/60'
+                    : 'lg:flex-[1]'
                 }`}
                 style={{ maxHeight: "350px" }}
+                whileHover={{ 
+                  y: -4,
+                  transition: { duration: 0.3, ease: "easeOut" }
+                }}
+                layout
+                transition={{ duration: 0.5, ease: "easeInOut" }}
               >
-                <div className="p-6 h-full flex flex-col">
-                  <h3 className="text-2xl font-bold text-white mb-4">
+                <div className="p-8 h-full flex flex-col">
+                  <motion.h3 
+                    className="text-2xl font-bold text-white mb-6"
+                    layout
+                  >
                     {card.title}
-                  </h3>
+                  </motion.h3>
 
-                  <div className="flex flex-col md:flex-row gap-4 h-full">
+                  <div className="flex flex-col lg:flex-row gap-6 h-full">
                     {/* Content area */}
                     <div
                       className={`flex-1 flex flex-col ${
-                        isActive ? "md:w-1/2" : "w-full"
+                        isActive ? "lg:w-1/2" : "w-full"
                       }`}
                     >
-                      {isActive ? (
-                        <>
-                          <p className="text-blue-100/90 mb-4 flex-1 line-clamp-4">
-                            {truncateText(card.blog, 200)}
-                          </p>
-                          <Link
-                            to={card.url}
-                            className="flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200"
+                      <AnimatePresence mode="wait">
+                        {isActive ? (
+                          <motion.div
+                            key="expanded"
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            transition={{ duration: 0.3 }}
+                            className="flex flex-col h-full"
                           >
-                            Read More
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 20 20"
-                              fill="currentColor"
-                              className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200"
+                            <p className="text-blue-100/90 mb-6 flex-1 text-lg leading-relaxed font-light">
+                              {truncateText(card.blog, 200)}
+                            </p>
+                            <motion.div
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
                             >
-                              <path
-                                fillRule="evenodd"
-                                d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
-                                clipRule="evenodd"
+                              <Link
+                                to={card.url}
+                                className="btn-primary flex items-center justify-center gap-2 text-sm"
+                              >
+                                Read More
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 20 20"
+                                  fill="currentColor"
+                                  className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
+                                >
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                                    clipRule="evenodd"
+                                  />
+                                </svg>
+                              </Link>
+                            </motion.div>
+                          </motion.div>
+                        ) : (
+                          <motion.div
+                            key="collapsed"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            transition={{ duration: 0.3 }}
+                            className="flex flex-col items-center justify-center h-full"
+                          >
+                            <div className="mb-4 h-full object-cover overflow-hidden rounded-xl shadow-xl border border-blue-700/40">
+                              <img
+                                src={card.image}
+                                alt={card.title}
+                                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                               />
-                            </svg>
-                          </Link>
-                        </>
-                      ) : (
-                        <div className="flex flex-col items-center justify-center h-full">
-                          <div className="mb-4 h-full object-cover overflow-hidden rounded-lg shadow-lg border border-blue-700/30">
-                            <img
-                              src={card.image}
-                              alt={card.title}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        </div>
-                      )}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
 
                     {/* Image area - only visible when expanded */}
-                    {isActive && (
-                      <div className="flex-1 md:w-1/2 flex items-center justify-center">
-                        <div className="w-full h-64 md:h-full rounded-lg overflow-hidden shadow-md border border-blue-700/30">
-                          <img
-                            src={card.image}
-                            alt={card.title}
-                            className="w-full h-full object-cover"
-                          />
+                    <AnimatePresence>
+                      {isActive && (
+                        <motion.div
+                          initial={{ opacity: 0, x: 20, scale: 0.9 }}
+                          animate={{ opacity: 1, x: 0, scale: 1 }}
+                          exit={{ opacity: 0, x: 20, scale: 0.9 }}
+                          transition={{ duration: 0.4, ease: "easeOut" }}
+                          className="flex-1 lg:w-1/2 flex items-center justify-center"
+                        >
+                          <div className="w-full h-64 lg:h-full rounded-xl overflow-hidden shadow-xl border border-blue-700/40">
+                            <img
+                              src={card.image}
+                              alt={card.title}
+                              className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                            />
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </div>
+
+                {/* Glow effect overlay */}
+                <AnimatePresence>
+                  {isActive && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-cyan-400/10 pointer-events-none rounded-2xl"
+                    />
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        <motion.div 
+          className="w-full flex justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <ShinyButton 
+              text="Explore All Articles" 
+              disabled={false} 
+              speed={3}
+              className="text-lg px-10 py-4"
+            />
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default BlogSection;
+
                         </div>
                       </div>
                     )}
