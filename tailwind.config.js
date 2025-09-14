@@ -73,5 +73,6 @@ export default {
         },
       }
       addUtilities(newUtilities)
+    }
   ],
 };
